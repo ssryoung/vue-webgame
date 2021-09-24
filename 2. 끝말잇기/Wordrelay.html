@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>끝말잇기</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="root">
+    <div>{{text}}</div>
+    <form v-on:submit="onSubmitForm">
+      <input type="text" ref="answer" v-model="value">
+      <button type="submit">입력</button>
+    </form>
+    <div id="result">{{result}}</div>
+  </div>
+  <script>
+    const app = new Vue({
+      el: '#root',
+      data: {
+        text : '학교',
+        value: '',
+        result: ''
+      },
+      methods: {
+        onSubmitForm(e){
+          e.preventDefault();
+            if(this.text[this.text.length -1] === this.value[0]) {
+              this.result='정답';
+              this.text = this.value;
+              this.value='';
+              this.$refs.answer=focus();
+            } else{
+              this.result='땡';
+              this.value='';
+              this.$refs.answer=focus();
+            }
+
+        }
+      }
+    })
+
+  </script>
+</body>
+</html>
