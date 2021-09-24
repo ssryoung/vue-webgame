@@ -7,24 +7,33 @@
 </head>
 <body>
   <div id="root">
-    <div>{{text}}</div>
-    <form v-on:submit="onSubmitForm">
-      <input type="text" ref="answer" v-model="value">
-      <button type="submit">입력</button>
-    </form>
-    <div id="result">{{result}}</div>
+    <word-relay start-word="세령"></word-relay>
+    <word-relay start-word="안녕"></word-relay>
+    <word-relay start-word="히히"></word-relay>
   </div>
-  <script>
-    const app = new Vue({
-      el: '#root',
-      data: {
-        text : '학교',
-        value: '',
-        result: ''
-      },
-      methods: {
-        onSubmitForm(e){
-          e.preventDefault();
+    <script>
+      Vue.component('word-relay', {
+        template: `
+          <div>
+            <div>{{text}}</div>
+              <form v-on:submit="onSubmitForm">
+                <input type="text" ref="answer" v-model="value">
+                <button type="submit">입력</button>
+              </form>
+            <div id="result">{{result}}</div>
+          </div>`
+        ,
+        props: ['startWord'],
+        data() {
+          return{
+            text : this.startWord,
+            value: '',
+            result: ''
+          }
+        },
+        methods: {
+          onSubmitForm(e){
+            e.preventDefault();
             if(this.text[this.text.length -1] === this.value[0]) {
               this.result='정답';
               this.text = this.value;
@@ -35,9 +44,13 @@
               this.value='';
               this.$refs.answer=focus();
             }
-
+          }
         }
-      }
+      })
+    </script>
+  <script>
+    const app = new Vue({
+      el: '#root'
     })
 
   </script>
