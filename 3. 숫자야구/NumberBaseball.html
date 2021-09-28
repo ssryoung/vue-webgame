@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>숫자야구</title>
+</head>
+<body>
+    <!-- 스크립트 관리하기가 힘들어 질때 webpack를 설치
+        웹팩을 사용하기 위해서는 node.js를 설치해야 하는데 왠만하면 LTS로 설치할 것
+        npm은 남의 만들어둔 자바코드를 쓸수 있는 것 => 남의 JS코드를 모아모아 만드는 것이 추세
+        npm-init :
+        package.json : 남의 소스코드를 정리해놓은 곳(버전이나 소스코드를 확인 가능)
+        npm i vue : 프로젝트에 vue 설치(이제 따로 CDN을 이용할 필요가 없다.)
+        npm i webpack webpack-cli 설치
+        * -D : 개발용으로만 쓰겠다는 옵션
+        webpack.config.js : 웹팩 설정하는 파일(따로 만들어 줘야 함.)
+        node_modules : 내가 사용하는 모듈들이 설치되어 있는 곳
+        vue와 vue-template-compiler버전이 똑같아야 한다!, 버전별로 다운 받고 싶다면 num i vue@버전 으로 하면 됨.(노드는 무조건 버전이 3자리, @안쓰면 최신버전이 설치)
+        웹팩을 부르기 위해 num run (package.json에서 scripts에 정의한 이름)으로 웹팩을 실행해야 작성한 자바스크립트들이 합쳐지고, 업데이트됨.
+    -->
+    <div id="root"></div>
+    <script src="./dist/app.js"></script>
+</body>
+</html>
