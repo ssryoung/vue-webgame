@@ -33,7 +33,7 @@ const getNumbers = () => { // 랜덤으로 4개 숫자를 뽑는 것
 export default { // 이게 import로 가져오는 곳
   data(){
     return{
-      answer: getNumbers(), // 랜덤값 생성
+      answer: getNumbers(), // 랜덤값 생성 ex) [1,4,5,6]- 배열
       tries:[],
       value:'',
       result: '',
@@ -63,9 +63,9 @@ export default { // 이게 import로 가져오는 곳
         }
         let strike = 0;
         let ball = 0;
-        const answerArray = this.value.split('').map(v => parseInt(v)); // 화살표 함수 표현으로 함수를 선언할때 사용하는 새로운 함수 정의 방식
+        const answerArray = this.value.split('').map(v => parseInt(v)); // 문자열을 숫자로
         for (let i = 0; i < 4; i += 1){
-          if(answerArray[i] === this.answer[i]){ // 숫자 자리수 모두 전달
+          if(answerArray[i] === this.answer[i]){ // 숫자 자리수 모두 정답
             strike++;
           }else if(this.answer.includes(answerArray[i])) { // 숫자만 정답, includes() : 배열이 특정 요소를 포함하고 있는지 판별
             ball++;
